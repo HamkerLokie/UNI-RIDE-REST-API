@@ -1,0 +1,439 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1680292241792,
+        "children": [
+          {
+            "key": 1680292430598,
+            "children": [
+              {
+                "key": 1680292439503,
+                "children": [],
+                "todo": {
+                  "content": "Inputs Validation",
+                  "id": 1680292439503,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292439503,
+                  "focus": false,
+                  "end": 1680293045290
+                }
+              },
+              {
+                "key": 1680292451929,
+                "children": [],
+                "todo": {
+                  "content": "Saving to Database",
+                  "id": 1680292451929,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292451929,
+                  "focus": false,
+                  "end": 1680293047172
+                }
+              },
+              {
+                "key": 1680292491198,
+                "children": [],
+                "todo": {
+                  "content": "Login",
+                  "id": 1680292491198,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292491198,
+                  "focus": false,
+                  "end": 1680293048581
+                }
+              },
+              {
+                "key": 1680292497067,
+                "children": [],
+                "todo": {
+                  "content": "JWT Sign and Verify",
+                  "id": 1680292497067,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292497067,
+                  "focus": false,
+                  "end": 1680293049944
+                }
+              },
+              {
+                "key": 1680292517719,
+                "children": [],
+                "todo": {
+                  "content": "Protection Middlewares",
+                  "id": 1680292517719,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292517719
+                }
+              },
+              {
+                "key": 1680292534487,
+                "children": [],
+                "todo": {
+                  "content": "Founders Middlewares",
+                  "id": 1680292534487,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292534487
+                }
+              }
+            ],
+            "todo": {
+              "content": "Authentication",
+              "id": 1680292430598,
+              "level": "success",
+              "done": false,
+              "start": 1680292430598,
+              "focus": false,
+              "end": 1680293039546
+            }
+          },
+          {
+            "key": 1680292463074,
+            "children": [
+              {
+                "key": 1680292547332,
+                "children": [],
+                "todo": {
+                  "content": "Users",
+                  "id": 1680292547332,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292547332
+                }
+              },
+              {
+                "key": 1680292552378,
+                "children": [],
+                "todo": {
+                  "content": "All Rides",
+                  "id": 1680292552378,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292552378
+                }
+              },
+              {
+                "key": 1680292570147,
+                "children": [],
+                "todo": {
+                  "content": "All Locations",
+                  "id": 1680292570147,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292570147
+                }
+              },
+              {
+                "key": 1680292820747,
+                "children": [],
+                "todo": {
+                  "content": "Finalised Rides",
+                  "id": 1680292820747,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292820747
+                }
+              }
+            ],
+            "todo": {
+              "content": "Database Models",
+              "id": 1680292463074,
+              "level": "success",
+              "done": false,
+              "start": 1680292463074
+            }
+          },
+          {
+            "key": 1680292271373,
+            "children": [
+              {
+                "key": 1680292335013,
+                "children": [],
+                "todo": {
+                  "content": "Post Ride",
+                  "id": 1680292335013,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292335013
+                }
+              },
+              {
+                "key": 1680292348737,
+                "children": [],
+                "todo": {
+                  "content": "Get Previous Ride",
+                  "id": 1680292348737,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292348737
+                }
+              },
+              {
+                "key": 1680292748545,
+                "children": [],
+                "todo": {
+                  "content": "Deletes Previous Rides",
+                  "id": 1680292748545,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292748545
+                }
+              }
+            ],
+            "todo": {
+              "content": "Driver API's",
+              "id": 1680292271373,
+              "level": "success",
+              "done": false,
+              "start": 1680292271373,
+              "focus": false,
+              "end": 1680292322325
+            }
+          },
+          {
+            "key": 1680292307660,
+            "children": [
+              {
+                "key": 1680292408608,
+                "children": [],
+                "todo": {
+                  "content": "Gets Previous Rides",
+                  "id": 1680292408608,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292408609
+                }
+              },
+              {
+                "key": 1680292607158,
+                "children": [],
+                "todo": {
+                  "content": "Search By Locations",
+                  "id": 1680292607158,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292607158
+                }
+              },
+              {
+                "key": 1680292620255,
+                "children": [],
+                "todo": {
+                  "content": "Search By Dates",
+                  "id": 1680292620255,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292620255
+                }
+              },
+              {
+                "key": 1680292636941,
+                "children": [],
+                "todo": {
+                  "content": "Finalising Rides",
+                  "id": 1680292636941,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292636941
+                }
+              },
+              {
+                "key": 1680600113461,
+                "children": [],
+                "todo": {
+                  "content": "Star Driver",
+                  "id": 1680600113461,
+                  "level": "default",
+                  "done": true,
+                  "start": 1680600113461,
+                  "focus": false,
+                  "end": 1680600126651
+                }
+              }
+            ],
+            "todo": {
+              "content": "User API's",
+              "id": 1680292307660,
+              "level": "success",
+              "done": false,
+              "start": 1680292307660,
+              "focus": false,
+              "end": 1680292323931
+            }
+          },
+          {
+            "key": 1680292873223,
+            "children": [
+              {
+                "key": 1680292899861,
+                "children": [],
+                "todo": {
+                  "content": "Posting Locations",
+                  "id": 1680292899861,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292899861
+                }
+              },
+              {
+                "key": 1680292909758,
+                "children": [],
+                "todo": {
+                  "content": "Posting Rewards",
+                  "id": 1680292909758,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292909758
+                }
+              },
+              {
+                "key": 1680292981803,
+                "children": [],
+                "todo": {
+                  "content": "Only Founder Protection",
+                  "id": 1680292981803,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292981803
+                }
+              }
+            ],
+            "todo": {
+              "content": "Founders",
+              "id": 1680292873223,
+              "level": "success",
+              "done": false,
+              "start": 1680292873223
+            }
+          },
+          {
+            "key": 1680292952569,
+            "children": [
+              {
+                "key": 1680292961555,
+                "children": [],
+                "todo": {
+                  "content": "Get All Location",
+                  "id": 1680292961555,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292961555
+                }
+              },
+              {
+                "key": 1680292971045,
+                "children": [],
+                "todo": {
+                  "content": "Get All Users",
+                  "id": 1680292971045,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680292971045
+                }
+              },
+              {
+                "key": 1680293111326,
+                "children": [],
+                "todo": {
+                  "content": "Custom Error Handling",
+                  "id": 1680293111326,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680293111326
+                }
+              },
+              {
+                "key": 1680293136100,
+                "children": [],
+                "todo": {
+                  "content": "Configuring .env",
+                  "id": 1680293136100,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680293136100
+                }
+              }
+            ],
+            "todo": {
+              "content": "Misc.",
+              "id": 1680292952569,
+              "level": "success",
+              "done": false,
+              "start": 1680292952569
+            }
+          },
+          {
+            "key": 1680293072616,
+            "children": [
+              {
+                "key": 1680293084802,
+                "children": [],
+                "todo": {
+                  "content": "Database Connection",
+                  "id": 1680293084802,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680293084802
+                }
+              },
+              {
+                "key": 1680293100242,
+                "children": [],
+                "todo": {
+                  "content": "GLobal Middlewares",
+                  "id": 1680293100242,
+                  "level": "default",
+                  "done": false,
+                  "start": 1680293100242
+                }
+              }
+            ],
+            "todo": {
+              "content": "Server",
+              "id": 1680293072616,
+              "level": "success",
+              "done": false,
+              "start": 1680293072616
+            }
+          }
+        ],
+        "todo": {
+          "content": "Creating Backend",
+          "id": 1680292241792,
+          "level": "warning",
+          "done": false,
+          "start": 1680292241792,
+          "focus": false,
+          "end": 1680292325367
+        }
+      }
+    ],
+    "expandKeys": [
+      1680292241792,
+      1680292552378,
+      1680292430598,
+      1680292463074,
+      1680292271373,
+      1680292307660,
+      1680292873223,
+      1680292899861,
+      1680292952569,
+      1680293072616
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "tasks",
+    "autoSort": false,
+    "showEndTime": false,
+    "lang": "en",
+    "version": "1680600127053"
+  }
+}

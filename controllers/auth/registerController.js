@@ -11,16 +11,21 @@ const registerController = {
     const registerSchema = Joi.object({
       username: Joi.string().min(3).max(30).required(),
       email: Joi.string().email().required(),
+      mobile: Joi.number().required(),
       password: Joi.string()
         .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
         .required(),
-      repeat_password: Joi.ref('password')
+      repeat_password: Joi.ref('password'),
+      role: Joi.string()
     })
 
     const { error } = registerSchema.validate(req.body)
 
     if (error) {
       return next(error)
+    }
+    if (req.body.password !== req.body.repeat_password) {
+      return next(CustomErrorHandler.unauthorized('Passwords do not match'))
     }
 
     try {
@@ -36,25 +41,24 @@ const registerController = {
     }
 
     // Hash Password
-    const { username, email, password } = req.body
+    const { username, email, mobile, password } = req.body
     const hashedPass = await bcrypt.hash(password, Number(SALT))
 
     const user = new User({
       username,
       email,
+      mobile,
       password: hashedPass
     })
-
-    let access_token;
+    let access_token
 
     try {
       const result = await user.save()
 
       access_token = JwtService.sign({
         _id: result._id,
-        username: result.username
+        username: result.username,
       })
-
     } catch (err) {
       return next(err)
     }

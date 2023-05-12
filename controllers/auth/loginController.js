@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt'
 import JwtService from '../../services/JwtServices'
 import CustomErrorHandler from '../../services/CustomErrorHandler'
 
-
 const loginController = {
   async login (req, res, next) {
     const loginSchema = Joi.object({
@@ -20,7 +19,7 @@ const loginController = {
       return next(error)
     }
     try {
-      //   Find User
+      //Find User
       const user = await User.findOne({
         email
       })
@@ -40,16 +39,65 @@ const loginController = {
       //   Token
       const access_token = JwtService.sign({
         _id: user._id,
-        username: user.username
+        username: user.username,
+        mobile: user.mobile,
+        email: user.email,
+        role: user.role
       })
-      res.json({ access_token })
+      if (user.role === 'admin') {
+        const access_token = JwtService.sign({
+          _id: user._id,
+          username: user.username,
+          email: user.email,
+          role: user.role
+        })
+
+        res.cookie('usercookie', access_token, {
+          expires: new Date(Date.now() + 9000000),
+          httpOnly: true
+        })
+
+        res.status(201).json({ user, access_token })
+      } else {
+        //   Token
+        const access_token = JwtService.sign({
+          _id: user._id,
+          username: user.username,
+          email: user.email,
+          role: user.role
+        })
+
+        res.cookie('usercookie', access_token, {
+          expires: new Date(Date.now() + 9000000),
+          httpOnly: true
+        })
+
+        res.status(201).json({ user, access_token })
+      }
     } catch (err) {
       return next(err)
     }
   },
 
-  async getMe(req, res, next){
-    res.json(req.user)
+  async validateUser (req, res, next) {
+    try {
+      const validateOne = await User.findById(req.user._id).select('-__v -password')
+      if (!validateOne) {
+        return next(CustomErrorHandler.notFound('User not found'))
+      }
+      res.json({ validateOne })
+    } catch (error) {
+      return next(error)
+    }
+  },
+
+  async getAllUsers (req, res, next) {
+    try {
+      const allUsers = User.find().select('-password -role -__v').populate('')
+    } catch (error) {
+      return next(error)
+    }
   }
 }
 export default loginController
+

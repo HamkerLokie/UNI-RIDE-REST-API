@@ -1,3 +1,4 @@
+import { boolean } from 'joi'
 import mongoose, { Schema } from 'mongoose'
 
 const rideSchema = mongoose.Schema(
@@ -16,7 +17,7 @@ const rideSchema = mongoose.Schema(
       required: true
     },
     date: {
-      type: Date,
+      type: String,
       required: true
     },
     price: {
@@ -34,6 +35,10 @@ const rideSchema = mongoose.Schema(
     maxPerson: {
       type: Number,
       required: true
+    },
+    isFinalised:{
+      type:Boolean,
+      default:false
     }
   },
   { timstamps: true }

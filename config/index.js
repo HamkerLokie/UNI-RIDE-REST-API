@@ -8,5 +8,6 @@ export const {
     DB_URL,
     SALT,
     JWT_SECRET,
+    SECRETKEYFORFOUNDER,
     REFRESH_SECRET
 } = process.env
