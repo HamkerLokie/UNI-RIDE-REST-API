@@ -21,7 +21,7 @@ const protect = async (req, res, next) => {
     req.user = user
     next()
   } catch (error) {
-    return next(CustomErrorHandler.unAuthorized('Network Error'))
+    return next(error)
   }
 }
 

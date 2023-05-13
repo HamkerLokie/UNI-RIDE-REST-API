@@ -20,7 +20,14 @@ const rideSchema = mongoose.Schema(
       type: String,
       required: true
     },
+    time: {
+      type: String,
+    },
     price: {
+      type: String,
+      required: true
+    },
+    vehicleType: {
       type: String,
       required: true
     },
@@ -40,8 +47,9 @@ const rideSchema = mongoose.Schema(
       type:Boolean,
       default:false
     }
+    
   },
-  { timstamps: true }
+  { timestamps: true }
 )
 
 export default mongoose.model('Rides', rideSchema)

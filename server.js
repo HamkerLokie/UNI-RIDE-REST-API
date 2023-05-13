@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import errorHandler from './middleware/errorHandler'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import ws from 'ws'
 const app = express()
 mongoose.connect(DB_URL) 
 const db = mongoose.connection
@@ -20,9 +21,24 @@ app.use(express.json())
 app.use(routes)
 
 app.use(errorHandler)
-app.listen(APP_PORT, () => {
+ const server = app.listen(APP_PORT, () => {
   console.log(`Server Running on ${APP_PORT}`)
 })
+
+const wss = new ws.WebSocketServer({server})
+wss.on('connection', (connection, req)=>{
+
+  connection.isAlive = true;
+  connection.on('message', (message)=>{
+    console.log(message);
+  })
+  
+})
+
+
+
+
+
 
 
 

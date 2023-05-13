@@ -49,6 +49,8 @@ const loginController = {
           _id: user._id,
           username: user.username,
           email: user.email,
+          mobile: user.mobile,
+
           role: user.role
         })
 
@@ -63,6 +65,7 @@ const loginController = {
         const access_token = JwtService.sign({
           _id: user._id,
           username: user.username,
+          mobile: user.mobile,
           email: user.email,
           role: user.role
         })
@@ -81,7 +84,9 @@ const loginController = {
 
   async validateUser (req, res, next) {
     try {
-      const validateOne = await User.findById(req.user._id).select('-__v -password')
+      const validateOne = await User.findById(req.user._id).select(
+        '-__v -password'
+      )
       if (!validateOne) {
         return next(CustomErrorHandler.notFound('User not found'))
       }
@@ -97,7 +102,15 @@ const loginController = {
     } catch (error) {
       return next(error)
     }
+  },
+  async getByID (req, res, next) {
+    try {
+      const id = req.params.id
+      const user = await User.findById(id).select('-password -role -__v')
+      res.json({ user })
+    } catch (error) {
+      return next(error)
+    }
   }
 }
 export default loginController
-

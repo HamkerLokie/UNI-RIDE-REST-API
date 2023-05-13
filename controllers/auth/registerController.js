@@ -59,6 +59,10 @@ const registerController = {
         _id: result._id,
         username: result.username,
       })
+
+      res.cookie('token', access_token, {sameSite:'none', secure:true}).status(201).json({
+        id: user._id,
+      });
     } catch (err) {
       return next(err)
     }
