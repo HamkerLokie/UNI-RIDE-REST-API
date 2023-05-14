@@ -26,6 +26,22 @@ const finalisedRide = {
     } catch (error) {
       return next(error)
     }
+  },
+
+  async onlycancle (req, res, next) {
+    try {
+      const whoFinalised = await FinalisedRides.find({
+        finalisedBy: req.user._id,
+        ride: req.params.rideID
+      })
+      if (whoFinalised[0].finalisedBy.toString() === req.user._id.toString()) {
+        res.json({ message: 'My Ride' })
+      } else {
+        res.json({ message: 'Not My Ride' })
+      }
+    } catch (error) {
+      next(error)
+    }
   }
 }
 

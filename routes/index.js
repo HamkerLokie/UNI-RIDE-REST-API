@@ -38,6 +38,10 @@ router.get('/all-my-rides/:id', protect, postRides.myrides)
 router.get('/my-finalised-rides', protect, postRides.myFinalisedRides)
 router.get('/my-starredDrivers', protect, driverDetails.getStarredDriver)
 
+
+router.get('/onlycancel/:rideID',protect, finalisedRide.onlycancle)
+
+
 // Post Locations
 router.post(
   '/add-location',

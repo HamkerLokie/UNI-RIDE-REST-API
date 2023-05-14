@@ -53,19 +53,24 @@ const postRides = {
       if (!ride) {
         return res.status(404).send({ error: 'Ride not found' })
       }
+      console.log(driver.driver, req.user._id)
+      console.log(ride.finalisedBy, req.user._id)
 
-      if (driver.driver != req.user._id || ride.finalisedBy != req.user._id) {
+      if (
+        driver.driver.toString() === req.user._id.toString() ||
+        ride.finalisedBy.toString() === req.user._id.toString()
+      ) {
+        driver.isFinalised = false
+        await driver.save()
+
+        await FinalisedRides.deleteOne({ ride: rideId })
+
+        res.send({ message: 'Ride cancelled successfully' })
+      } else {
         return res
           .status(401)
           .send({ error: 'You are not authorized to cancel this ride' })
       }
-
-      ride.isFinalised = false
-      await ride.save()
-
-      await FinalisedRides.deleteOne({ _id: rideId })
-
-      res.send({ message: 'Ride cancelled successfully' })
     } catch (error) {
       return next(CustomErrorHandler.notExists('Error While Fetching Data'))
     }
