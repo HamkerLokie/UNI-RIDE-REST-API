@@ -1,4 +1,5 @@
-import mongoose from "mongoose"
+import { boolean } from 'joi'
+import mongoose from 'mongoose'
 const userSchema = mongoose.Schema(
   {
     username: {
@@ -14,16 +15,17 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true
     },
-    
+
     mobile: {
       type: String,
       required: true
     },
-    
+
     role: {
       type: String,
       default: 'User'
     },
+  
     starredDriver: [
       {
         driverId: {

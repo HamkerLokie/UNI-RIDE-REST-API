@@ -17,7 +17,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   res.send('hiii')
 })
-router.post('/register', registerController.register)
+router.post('/register', registerController.tempReg)
 router.post('/login', loginController.login)
 router.get('/validate', protect, loginController.validateUser)
 router.get('/getAllUsers', protect, loginController.getAllUsers)
@@ -34,13 +34,14 @@ router.get('/search-all-rides', postRides.getAllRides)
 router.get('/rideByID/:id', postRides.getRidesById)
 router.get('/search-rides-by-date', postRides.getRidesByDate)
 router.get('/search/:from/:to/:date', protect, postRides.getRidesByLocation)
-router.get('/all-my-rides/:id', protect, postRides.myrides)
+router.get('/all-my-rides', protect, postRides.myrides)
+router.get('/all-my-types/:type', protect, postRides.mybikes)
 router.get('/my-finalised-rides', protect, postRides.myFinalisedRides)
+router.get('/my-nonfixed-rides', protect, postRides.myfixedRides)
 router.get('/my-starredDrivers', protect, driverDetails.getStarredDriver)
+router.get('//verify-email/:token', registerController.verify)
 
-
-router.get('/onlycancel/:rideID',protect, finalisedRide.onlycancle)
-
+router.get('/onlycancel/:rideID', protect, finalisedRide.onlycancle)
 
 // Post Locations
 router.post(
@@ -61,6 +62,7 @@ router.get('/notfinalised/:date', FilterController.notfinalised)
 // Conversations
 router.post('/new/conver/:reciverId', protect, Conversation.addConversation)
 router.get('/myconversations/:reciverId', protect, Conversation.getConverstaion)
+router.get('/myconvos', protect, Conversation.myConvose)
 
 // Messages
 router.post('/new/msg/:conversationId', protect, Message.addMsg)

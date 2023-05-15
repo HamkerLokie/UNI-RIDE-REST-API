@@ -24,6 +24,18 @@ const Conversation = {
     } catch (error) {
       next(error)
     }
+  },
+  async myConvose (req, res, next) {
+    try {
+      const cvs = await Conversations.find({
+        $or: [{ 'members.0': req.user._id }, { 'members.1': req.user._id }]
+      })
+        .populate('members')
+        .exec()
+      res.json(cvs)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

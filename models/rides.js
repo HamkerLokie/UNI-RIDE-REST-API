@@ -21,7 +21,7 @@ const rideSchema = mongoose.Schema(
       required: true
     },
     time: {
-      type: String,
+      type: String
     },
     price: {
       type: String,
@@ -33,21 +33,24 @@ const rideSchema = mongoose.Schema(
     },
     vehicle: {
       type: String,
+      default: 'Not Uploaded by Driver',
       required: true
     },
     vehicleNumber: {
       type: String,
+      default: 'Not Uploaded by Driver',
+
       required: true
     },
     maxPerson: {
       type: Number,
       required: true
     },
-    isFinalised:{
-      type:Boolean,
-      default:false
+    isFinalised: {
+      type: Boolean,
+
+      default: false
     }
-    
   },
   { timestamps: true }
 )

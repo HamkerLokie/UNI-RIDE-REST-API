@@ -53,8 +53,6 @@ const postRides = {
       if (!ride) {
         return res.status(404).send({ error: 'Ride not found' })
       }
-      console.log(driver.driver, req.user._id)
-      console.log(ride.finalisedBy, req.user._id)
 
       if (
         driver.driver.toString() === req.user._id.toString() ||
@@ -119,7 +117,6 @@ const postRides = {
         res.json({ message: 'Ride deleted successfully' })
       }
     } catch (err) {
-      console.error(err)
       res.status(500).json({ error: 'An error occurred' })
     }
   },
@@ -128,35 +125,58 @@ const postRides = {
     const id = req.user._id
     try {
       const response = await Rides.find({ driver: id })
+        .populate('driver')
+        .sort({ createdAt: 'desc' })
       res.json(response)
     } catch (error) {
       next(error)
     }
   },
+
+  async mybikes (req, res, next) {
+    const id = req.user._id
+    try {
+      const response = await Rides.find({ driver: id, vehicleType: req.params.type })
+        .populate('driver')
+        .sort({ createdAt: 'desc' })
+      res.json(response)
+    } catch (error) {
+      next(error)
+    }
+  },
+
   async myFinalisedRides (req, res, next) {
     const id = req.user._id
 
     try {
-      const rideArray = await FinalisedRides.find({ finalisedBy: id }).populate(
-        {
-          path: 'ride',
-          select: '-__v',
-          populate: {
-            path: 'driver',
-            select: '-__v'
+      const rides = await Rides.find({ driver: id }).populate('driver')
+      const ridesFinalisedByUser = await Promise.all(
+        rides.map(async ride => {
+          const rideWithFinalisedBy = await FinalisedRides.findOne({
+            ride: ride._id
+          })
+            .populate('ride')
+            .populate('finalisedBy')
+          if (!rideWithFinalisedBy) {
+            return null
           }
-        }
+          return rideWithFinalisedBy
+        })
       )
+      // filter out null values from the array
+      const filteredRides = ridesFinalisedByUser.filter(ride => ride !== null)
+      res.json(filteredRides)
+    } catch (error) {
+      return next(error)
+    }
+  },
+  async myfixedRides (req, res, next) {
+    const id = req.user._id
 
-      for (let i = 0; i < rideArray.length; i++) {
-        const ride = rideArray[i].ride
-        await Rides.updateOne(
-          { _id: ride._id },
-          { $set: { isFinalised: true } }
-        )
-      }
-
-      res.json(rideArray)
+    try {
+      const rides = await Rides.find({ driver: id, isFinalised:false}).populate('driver')
+   
+      res.json(rides)
     } catch (error) {
       return next(error)
     }
