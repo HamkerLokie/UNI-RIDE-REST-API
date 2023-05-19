@@ -108,9 +108,12 @@ const postRides = {
   },
 
   async deleteRides (req, res, next) {
-    const { id } = req.params
+    const { rideId } = req.params
     try {
-      const ride = await Rides.findByIdAndDelete(id)
+      const ride = await Rides.findOneAndDelete({
+        _id: rideId,
+        isFinalised: false
+      })
       if (!ride) {
         res.status(404).json({ error: 'Ride not found' })
       } else {
@@ -136,7 +139,10 @@ const postRides = {
   async mybikes (req, res, next) {
     const id = req.user._id
     try {
-      const response = await Rides.find({ driver: id, vehicleType: req.params.type })
+      const response = await Rides.find({
+        driver: id,
+        vehicleType: req.params.type
+      })
         .populate('driver')
         .sort({ createdAt: 'desc' })
       res.json(response)
@@ -174,8 +180,11 @@ const postRides = {
     const id = req.user._id
 
     try {
-      const rides = await Rides.find({ driver: id, isFinalised:false}).populate('driver')
-   
+      const rides = await Rides.find({
+        driver: id,
+        isFinalised: false
+      }).populate('driver')
+
       res.json(rides)
     } catch (error) {
       return next(error)

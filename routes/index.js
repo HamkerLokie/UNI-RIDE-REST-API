@@ -26,7 +26,7 @@ router.get('/getbyID/:id', protect, loginController.getByID)
 // Rides -> needs to improve controllers implementation
 router.post('/post-ride', protect, postRides.postride)
 router.delete('/cancel-ride/:rideId', protect, postRides.cancelRide)
-router.delete('/delete-ride/:id', protect, postRides.deleteRides)
+router.delete('/delete-ride/:rideId', protect, postRides.deleteRides)
 router.post('/ride-finalised/:rideId', protect, finalisedRide.rideFinalised)
 router.put('/star-driver/:driverId', protect, driverDetails.starDriver)
 

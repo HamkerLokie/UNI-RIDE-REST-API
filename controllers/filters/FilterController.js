@@ -11,7 +11,7 @@ const FilterController = {
       date
     })
       .populate('driver')
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 'asc' })
       .limit(10)
     res.json(recentRides)
   },
@@ -45,7 +45,7 @@ const FilterController = {
   async notfinalised (req, res, next) {
     const date = req.params.date
     const notFinalisedRides = await Rides.find({
-      isFinalised: true,
+      isFinalised: false,
       date
     }).populate('driver')
     res.json(notFinalisedRides)
