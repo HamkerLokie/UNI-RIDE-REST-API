@@ -9,5 +9,4 @@ export const {
     SALT,
     JWT_SECRET,
     SECRETKEYFORFOUNDER,
-    REFRESH_SECRET
 } = process.env

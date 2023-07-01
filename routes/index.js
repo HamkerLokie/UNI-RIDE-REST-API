@@ -29,7 +29,7 @@ router.delete('/cancel-ride/:rideId', protect, postRides.cancelRide)
 router.delete('/delete-ride/:rideId', protect, postRides.deleteRides)
 router.post('/ride-finalised/:rideId', protect, finalisedRide.rideFinalised)
 router.put('/star-driver/:driverId', protect, driverDetails.starDriver)
-
+// router.post('addreview/:driverId',protect, postRides.addreview)
 router.get('/search-all-rides', postRides.getAllRides)
 router.get('/rideByID/:id', postRides.getRidesById)
 router.get('/search-rides-by-date', postRides.getRidesByDate)
