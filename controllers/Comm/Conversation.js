@@ -1,5 +1,6 @@
 import { Conversations } from '../../models'
 const Conversation = {
+  
   async addConversation (req, res, next) {
     const newConversation = new Conversations({
       members: [req.user._id, req.params.reciverId]

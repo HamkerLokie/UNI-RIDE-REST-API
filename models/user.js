@@ -21,12 +21,11 @@ const userSchema = mongoose.Schema(
       required: true
     },
 
-    role:{
-      type:String,
-      default:'User'
+    role: {
+      type: String,
+      default: 'User'
     },
-    
-  
+
     starredDriver: [
       {
         driverId: {
